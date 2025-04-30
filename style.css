@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+  animation: gradientBackground 10s infinite alternate;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(45deg, #ff0066, #ffcc00, #33cc33);
+  }
+  25% {
+    background: linear-gradient(45deg, #ff0066, #00ffff, #33cc33);
+  }
+  50% {
+    background: linear-gradient(45deg, #ffcc00, #ff0066, #00ffff);
+  }
+  75% {
+    background: linear-gradient(45deg, #33cc33, #00ffff, #ff0066);
+  }
+  100% {
+    background: linear-gradient(45deg, #00ffff, #ffcc00, #ff0066);
+  }
+}
+
+canvas {
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.7), 0 0 60px rgba(0, 255, 255, 0.5);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(0, 0, 0, 1) 80%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: pulsateCanvas 2s infinite ease-in-out;
+}
+
+@keyframes pulsateCanvas {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.7), 0 0 80px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 80px rgba(255, 0, 0, 1), 0 0 120px rgba(0, 255, 255, 1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.7), 0 0 80px rgba(0, 255, 255, 0.5);
+  }
+}
+
+h1 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 0, 0, 0.7);
+  animation: glowText 1.5s infinite alternate;
+}
+
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 0, 0, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 255, 255, 1),
+      0 0 60px rgba(255, 0, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 0, 0, 0.7);
+  }
+}
+
+@keyframes lightWave {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.4;
+  }
+}
+
+button {
+  position: absolute;
+  top: 80%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  border: 2px solid #ffcc00;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1) translateX(-50%) rotate(15deg);
+  background-color: rgba(255, 0, 0, 1);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 60px rgba(0, 255, 255, 1);
+}
+
+@keyframes waveEffect {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://www.transparenttextures.com/patterns/brick-wall.png")
+    repeat;
+  opacity: 0.1;
+  z-index: -1;
+  animation: waveEffect 5s linear infinite;
+}
+
+@media (max-width: 768px) {
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+}
